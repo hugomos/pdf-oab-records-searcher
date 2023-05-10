@@ -37,7 +37,7 @@ class Main:
     """
     return [os.path.join(path, file) for file in os.listdir(path) if file.endswith(type)]
 
-  def get_all_matches(self, files: List[str]) -> List[object]:
+  def get_all_matchs(self, files: List[str]) -> List[object]:
     """
       Retorna uma lista de objetos representando todas os matchs encontrados nos arquivos PDF fornecidos que correspondem aos registros da OAB.
 
@@ -51,7 +51,7 @@ class Main:
           Exception: se nenhum match for encontrado nos arquivos PDF.
 
       Exemplo:
-          get_all_matches(['file1.pdf', 'file2.pdf', 'file3.pdf'])
+          get_all_matchs(['file1.pdf', 'file2.pdf', 'file3.pdf'])
     """
     matchs = []
     
@@ -67,34 +67,34 @@ class Main:
             matchs.append({'oab_record': oab, 'file': file, 'page': page + 1})
 
     if(len(matchs) <= 0):
-      raise Exception("No matches found")
+      raise Exception("No matchs found")
 
     return matchs
 
-  def generate_matches_report(self, matches: List[object]) -> None:
+  def generate_matchs_report(self, matchs: List[object]) -> None:
     """
       Gera um relatório em formato Excel contendo informações sobre uma lista de matchs.
 
       Args:
-          matches (List[object]): uma lista contendo objetos que representam os matchs.
+          matchs (List[object]): uma lista contendo objetos que representam os matchs.
 
       Returns:
           None: a função não retorna nenhum valor, apenas salva o arquivo Excel no caminho especificado.
 
       Exemplo:
-          generate_matches_report([match1, match2, match3])
+          generate_matchs_report([match1, match2, match3])
     """
     
-    df = pd.DataFrame(matches)
+    df = pd.DataFrame(matchs)
     df.sort_values(by=['file', 'page'], inplace=True)
   
-    df.to_excel(os.path.join(Main.ASSETS_PATH, 'xlsx', 'matches.xlsx'), index=False)
+    df.to_excel(os.path.join(Main.ASSETS_PATH, 'xlsx', 'matchs.xlsx'), index=False)
     return None
     
   @calc_execution_time
   def execute(self) -> None:
     files = self.get_files_from_path(os.path.join(Main.ASSETS_PATH, 'pdf'))    
-    self.generate_matches_report(self.get_all_matches(files))
+    self.generate_matchs_report(self.get_all_matchs(files))
     return None
 
 def main(parameters):
