@@ -1,0 +1,4 @@
+*.pyc
+__pycache__
+src/assets/pdf/*.pdf
+src/assets/xlsx/*.xlsx
