@@ -1,53 +1,45 @@
-# Script for generating OAB records report in PDFs
+# OAB Records PDF Searcher (Python)
 
-O script para geração de relatório de registros OAB em PDFs tem como objetivo extrair informações específicas de arquivos PDF, como os registros OAB, e gerar um relatório detalhado desses registros.
+This Python script is designed to search for records from the Brazilian Bar Association (OAB) within PDF files. It provides an automated way to extract relevant information such as registration numbers and lawyer names from the PDF files.
 
-O script utiliza técnicas de análise de texto para buscar padrões nos arquivos PDF e identificar os registros OAB.
+## Features
 
-O relatório gerado inclue informações como o número do registro, o arquivo PDF em que o registro foi encontrado e a pagina. Essa ferramenta pode ser útil para escritórios de advocacia, departamentos jurídicos ou qualquer pessoa que precise acompanhar os registros OAB em arquivos PDF.
+- Search for OAB records within PDF files
+- Extract registration numbers and associated information
+- Automate the search and extraction process
 
-## Instalação
+## Requirements
 
-```bash
-  git clone https://github.com/hugomos/script-for-generating-oab-records-report-in-pdfs.git
+- Python 3.x
+- Python Libraries: [list the required libraries]
+
+## Usage
+
+1. Instale as dependências necessárias:
+```shell
+pip install -r requirements.txt
 ```
 
-ou
-
-```bash
-  gh repo clone hugomos/script-for-generating-oab-records-report-in-pdfs
-```
-
-Entre no diretório do projeto
-
-```bash
-  cd script-for-generating-oab-records-report-in-pdfs
-```
-
-Instale as dependências
-
-```bash
-  python -m pip install -r requirements.txt
-```
-
-## Uso/Exemplos
-
-- Todos os arquivos .pdf devem estar em `assets/pdf`
-
-- **oab_records**: Parametro obrigatorio, os registros oab devem estar entre aspas duplas, separados por virgula, por exemplo:
-
-```bash
+2. Run the script by providing the path to the PDF file:
+```shell
 python src/main.py oab_records="16537-A/AL,133921/SP,154467-A/RJ,46843-A/RJ"
 ```
 
-## Autores
+3. After the search is completed, the script generates an XLSX table as output containing the extracted information.
 
-- [@hugomos](https://www.linkedin.com/in/hugomos/)
+4. View the generated XLSX table to access the extracted OAB records.
 
-## Suporte
+## Contribution
 
-Para suporte, mande um email para vitor_osantos@hotmail.com.
+Contributions are welcome! If you encounter issues or have improvements to suggest, feel free to open an issue or submit a pull request.
 
-## Licença
+## Limitations
 
-[MIT](https://choosealicense.com/licenses/mit/)
+- The script currently supports only PDF files formatted in a specific way.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+
